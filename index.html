@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portofolio Desain - Yossi Yostiani</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portofolio desain grafis & konten oleh Yossi Yostiani." />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fdf8ff;
+      --bg-soft: #ffffff;
+      --accent1: #ff7ac4;  /* pink cerah */
+      --accent2: #7b8cff;  /* ungu-biru cerah */
+      --accent3: #ffcf56;  /* kuning soft */
+      --text: #222222;
+      --muted: #666666;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #ffe6ff 0, transparent 40%),
+                  radial-gradient(circle at bottom right, #dde4ff 0, transparent 45%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 18px 60px;
+      position: relative;
+      z-index: 1;
+    }
+.logo-strip {
+  overflow: hidden;
+  width: 100%;
+  padding: 16px 0;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  gap: 42px;
+  align-items: center;
+  animation: scrollLogos 28s linear infinite;
+}
+
+.logo-track img {
+  height: 42px;
+  opacity: 0.75;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  filter: grayscale(100%);
+}
+
+.logo-track img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* mobile tweak */
+@media (max-width: 600px) {
+  .logo-track img {
+    height: 32px;
+    gap: 28px;
+  }
+}
+.logo-strip:hover .logo-track {
+  animation-play-state: paused;
+}
+
+  @media (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+    /* ============= ANIMATIONS ============= */
+
+    @keyframes slideInNav {
+      from { opacity: 0; transform: translateY(-18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatSoft {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(255, 122, 196, 0.45); }
+      70% { box-shadow: 0 0 0 12px rgba(255, 122, 196, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 122, 196, 0); }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    /* Shimmer di tombol WhatsApp */
+    .btn-contact-primary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(123,140,255,0.35),
+        rgba(255,255,255,0.1),
+        rgba(255,122,196,0.25)
+      );
+      transform: translateX(-120%) skewX(-20deg);
+      animation: btnShimmer 2.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes btnShimmer {
+      0% {
+        transform: translateX(-120%) skewX(-20deg);
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateX(140%) skewX(-20deg);
+        opacity: 0;
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === FLOATING BACKGROUND BUBBLES === */
+    .float-circle {
+      position: fixed;
+      border-radius: 999px;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      opacity: 0.65;
+      filter: blur(2px);
+      z-index: 0;
+      animation: orbitSoft 24s linear infinite;
+    }
+
+    .float-circle-1 {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,122,196,0.45), transparent 65%);
+      top: -60px;
+      left: -40px;
+    }
+
+    .float-circle-2 {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at 30% 30%, rgba(123,140,255,0.45), transparent 65%);
+      bottom: 60px;
+      right: -40px;
+      animation-duration: 30s;
+      animation-delay: -4s;
+    }
+
+    .float-circle-3 {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,207,86,0.45), transparent 65%);
+      top: 45%;
+      left: 65%;
+      animation-duration: 28s;
+      animation-delay: -8s;
+    }
+
+    @keyframes orbitSoft {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate3d(24px, 18px, 0) rotate(6deg);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+    }
+
+    /* === SCROLL PROGRESS BAR === */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      z-index: 90;
+      pointer-events: none;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      box-shadow: 0 0 12px rgba(123,140,255,0.6);
+      border-radius: 0 0 999px 999px;
+      transition: width 0.12s ease-out;
+    }
+
+    /* ============= NAVBAR ============= */
+
+    .navbar {
+      position: sticky;
+      top: 8px;
+      z-index: 50;
+      margin-bottom: 18px;
+      pointer-events: none;
+    }
+
+    .navbar-inner {
+      pointer-events: auto;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.85);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      animation: slideInNav 0.7s ease forwards;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-avatar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.7), transparent 60%);
+      transform: translateX(-120%);
+      animation: shimmer 2.4s ease-in-out infinite;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-links a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 122, 196, 0.12), rgba(123, 140, 255, 0.12));
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+      z-index: -1;
+    }
+
+    .nav-links a:hover::before {
+      transform: translateY(0);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent2);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: #fff !important;
+      padding: 7px 16px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(123, 140, 255, 0.4);
+    }
+
+    /* ============= HERO ============= */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 36px;
+      margin-top: 32px;
+      align-items: center;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .hero-badge {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 122, 196, 0.12);
+      color: var(--accent1);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      animation: floatSoft 5s ease-in-out infinite;
+    }
+
+    .hero-badge:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .hero-badge span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent1);
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      max-width: 460px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(123, 140, 255, 0.45);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      animation: pulseGlow 3s ease-out infinite;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .btn-primary:hover::after {
+      opacity: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(123, 140, 255, 0.55);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px dashed rgba(0,0,0,0.09);
+      cursor: pointer;
+      background: rgba(255,255,255,0.85);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-ghost::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(123,140,255,0.15), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .btn-ghost:hover::before {
+      opacity: 1;
+    }
+
+    .btn-ghost:hover {
+      border-style: solid;
+      border-color: rgba(123,140,255,0.4);
+      color: var(--accent2);
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-social {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 11px;
+    }
+
+    .hero-social-label {
+      color: var(--muted);
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 11px;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .social-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+    }
+
+    .social-pill-tiktok {
+      background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(17,24,39,0.92));
+      color: #f9fafb;
+    }
+
+    .social-pill-tiktok .dot {
+      background: linear-gradient(135deg, #25f4ee, #fe2c55);
+    }
+
+    .social-pill-ig {
+      background: linear-gradient(135deg, #ff9a62, #ff5b99);
+      color: #fff;
+    }
+
+    .social-pill-ig .dot {
+      background: #fff;
+    }
+
+    .social-pill:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.14);
+    }
+
+    .stat-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-pill:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+
+    /* === SKILLS TICKER === */
+    .skills-ticker {
+      margin-top: 16px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 999px;
+      padding: 8px 0;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .skills-ticker::before,
+    .skills-ticker::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .skills-ticker::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg) 0, transparent 100%);
+    }
+
+    .skills-ticker::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg) 0, transparent 100%);
+    }
+
+    .skills-ticker-track {
+      display: flex;
+      gap: 22px;
+      white-space: nowrap;
+      animation: tickerMove 18s linear infinite;
+      padding-inline: 28px;
+    }
+
+    .skills-ticker-item {
+      font-size: 12px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skills-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent2);
+    }
+
+    @keyframes tickerMove {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .stat-number {
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: var(--bg-soft);
+      border-radius: 34px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      animation: floatSoft 6s ease-in-out infinite;
+    }
+
+    .hero-right::before,
+    .hero-right::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 122, 196, 0.35), transparent 60%);
+      filter: blur(1px);
+      z-index: -1;
+      animation: floatSoft 7s ease-in-out infinite;
+    }
+
+    .hero-right::before {
+      width: 120px;
+      height: 120px;
+      top: -20px;
+      right: -10px;
+    }
+
+    .hero-right::after {
+      width: 130px;
+      height: 130px;
+      bottom: -30px;
+      left: -10px;
+      animation-delay: 1.2s;
+      background: radial-gradient(circle at 30% 30%, rgba(123, 140, 255, 0.35), transparent 60%);
+    }
+
+    .hero-photo {
+      border-radius: 26px;
+      background: #f4f4f4;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--muted);
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-tag-floating {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      font-size: 11px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.09);
+      animation: floatSoft 4.5s ease-in-out infinite;
+    }
+
+    .hero-chip {
+      position: absolute;
+      bottom: 16px;
+      left: 18px;
+      padding: 8px 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.95);
+      font-size: 11px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+      animation: floatSoft 5.5s ease-in-out infinite;
+      animation-delay: .5s;
+    }
+
+    /* ============= SECTIONS ============= */
+
+    section {
+      margin-top: 50px;
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .section-description {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-top: 4px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 20px 20px 18px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .tag-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(123,140,255,0.07);
+      color: var(--accent2);
+      font-weight: 500;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+    }
+
+    .timeline-dot {
+      margin-top: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-md);
+      padding: 16px 15px 14px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+      font-size: 13px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,122,196,0.13), transparent 45%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-label {
+      font-size: 11px;
+      color: var(--accent2);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .service-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* PORTFOLIO (IMAGE) */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .portfolio-item {
+      /* tidak clickable seluruhnya, hanya thumbnail */
+    }
+
+    /* RATIO 9:16 SEPERTI REELS */
+    .portfolio-thumb {
+      background: #f1f1f1;
+      aspect-ratio: 9 / 16;
+      max-height: 420px;
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;  /* PENTING: supaya overlay & icon hanya seluas kartu */
+    }
+
+    .portfolio-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    /* overlay halus */
+    .portfolio-hover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.0), rgba(0,0,0,0.15));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    /* icon play kecil & cute */
+    .portfolio-icon {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: var(--accent2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      pointer-events: auto;
+    }
+
+    .portfolio-thumb:hover .portfolio-hover {
+      opacity: 1;
+    }
+
+    .portfolio-thumb:hover img {
+      transform: scale(1.04);
+    }
+
+    .portfolio-body {
+      padding: 10px 13px 12px;
+      font-size: 12px;
+    }
+
+    .portfolio-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    .portfolio-meta {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* === POPUP VIDEO MODAL REELS === */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .video-modal.show {
+      display: flex;
+    }
+
+    .video-modal-content {
+      background: #fff;
+      border-radius: 22px;
+      max-width: 420px;
+      width: 100%;
+      padding: 16px 14px 14px;
+      position: relative;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+    }
+
+    .video-close {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      background: #fff;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 999px;
+      width: 30px;
+      height: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-embed-wrapper {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .video-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.9);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-nav-prev {
+      left: 8px;
+    }
+
+    .video-nav-next {
+      right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .video-modal {
+        padding: 14px;
+      }
+      .nav-links a:not(.nav-cta) {
+  display: none;
+}
+
+      .video-modal-content {
+        max-width: 360px;
+        padding: 12px 10px 10px;
+      }
+      .video-nav {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+      }
+    }
+
+    /* ====== VIDEO CAROUSEL (TIKTOK SLIDER) ====== */
+
+    .video-carousel {
+      position: relative;
+      margin-top: 14px;
+      overflow: visible;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 4px 2px 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      flex: 0 0 min(320px, 80vw);
+      scroll-snap-align: center;
+    }
+
+    .video-card {
+      background: var(--bg-soft);
+      border-radius: 22px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      padding: 12px 12px 10px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .video-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .video-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tiktok-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: calc(16 / 9 * 100%);
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .tiktok-wrapper iframe,
+    .tiktok-wrapper blockquote {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      border-radius: 999px;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--muted);
+      transition: var(--transition);
+      z-index: 20;
+      pointer-events: auto;
+    }
+
+    .carousel-btn:hover {
+      transform: translateY(-50%) translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+      color: var(--accent2);
+    }
+
+    .carousel-btn.prev {
+      left: -4px;
+    }
+
+    .carousel-btn.next {
+      right: -4px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(0,0,0,0.12);
+      padding: 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .carousel-dot.active {
+      width: 18px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-soft);
+      border-radius: 20px;
+      padding: 14px 14px 13px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+      font-size: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      font-size: 50px;
+      color: rgba(123,140,255,0.15);
+      top: -18px;
+      left: 6px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-role {
+      font-size: 11px;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CTA / CONTACT */
+
+    .contact-cta {
+      background: linear-gradient(135deg, var(--accent2), var(--accent1));
+      border-radius: 30px;
+      padding: 22px 20px 20px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      box-shadow: 0 23px 60px rgba(123,140,255,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.28), transparent 65%);
+      top: -120px;
+      right: -80px;
+      opacity: 0.9;
+      animation: floatSoft 9s ease-in-out infinite;
+    }
+
+    .contact-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-sub {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-contact-primary {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background: #ffffff;
+      color: var(--accent2);
+      box-shadow: 0 13px 30px rgba(0,0,0,0.25);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-contact-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 17px 36px rgba(0,0,0,0.35);
+    }
+
+    .btn-contact-ghost {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.65);
+      cursor: pointer;
+      background: transparent;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-contact-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+
+    .contact-info {
+      font-size: 12px;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info p {
+      margin-bottom: 4px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* === BACK TO TOP BUTTON === */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: none;
+      background: #ffffff;
+      color: var(--accent2);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      z-index: 80;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.26);
+      transform: translateY(-2px);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .about-grid,
+      .services-grid,
+      .portfolio-grid,
+      .testimonials-row,
+      .contact-cta {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .navbar-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .carousel-btn.prev {
+        left: 4px;
+      }
+      .carousel-btn.next {
+        right: 4px;
+      }
+    }
+
+    /* Scroll reveal dari kiri */
+    .reveal.reveal-left {
+      transform: translate3d(-18px, 0, 0);
+    }
+
+    .reveal.reveal-left.visible {
+      transform: translate3d(0, 0, 0);
+      transition-duration: 0.9s;
+    }
+
+    /* PERINGAN HEADER DI HP + LAYOUT MOBILE */
+    @media (max-width: 600px) {
+      .page {
+        padding-inline: 14px;
+        padding-top: 10px;
+      }
+
+      .hero-social {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 10px;
+      }
+
+      .social-pill {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 5px 9px;
+        font-size: 11px;
+      }
+
+      .skills-ticker-track {
+        animation-duration: 24s;
+      }
+
+      .navbar {
+        position: static;
+        margin-bottom: 8px;
+      }
+
+      .navbar-inner {
+        padding: 6px 10px;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+        gap: 10px;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .brand-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        padding: 5px 9px;
+      }
+
+     
+
+      .nav-cta {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      section {
+        margin-top: 40px;
+      }
+
+      .hero {
+        margin-top: 18px;
+      }
+
+      .hero-title {
+        font-size: 25px;
+      }
+
+      .skills-ticker {
+        margin-top: 12px;
+      }
+
+      .back-to-top {
+        bottom: 18px;
+        right: 16px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- FLOATING BUBBLES -->
+  <div class="float-circle float-circle-1"></div>
+  <div class="float-circle float-circle-2"></div>
+  <div class="float-circle float-circle-3"></div>
+
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="brand">
+          <div class="brand-avatar">Y</div>
+          <div class="brand-text">
+            <span class="brand-name">Yossi Yostiani</span>
+            <span class="brand-tagline">Content Creator & Designer</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">Tentang</a>
+          <a href="#services">Layanan</a>
+          <a href="#portfolio">Portofolio</a>
+          <a href="#testimonials">Klien</a>
+          <a href="#contact" class="nav-cta">Hubungi Saya</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero reveal">
+        <div>
+          <div class="hero-badge-row">
+            <div class="hero-badge">
+              <span class="dot"></span>
+              Portofolio Desain
+            </div>
+            <div class="hero-badge">
+              ✨ Colourful & Playful
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            Hai, aku <span class="hero-highlight">Yossi Yostiani</span>,  
+            siap bantu visualkan brand & konten kamu.
+          </h1>
+          <p class="hero-subtitle">
+            Desainer grafis & content creator yang fokus pada desain feed, story,
+            poster, slide presentasi, dan kebutuhan visual untuk brand kecil hingga UMKM.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#portfolio" class="btn-primary">Lihat Portofolio</a>
+            <a href="#contact" class="btn-ghost">Chat untuk kerja sama →</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-pill">
+              <span class="stat-number">+80</span>
+              <span class="stat-label">Desain konten / bulan</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-number">+25</span>
+              <span class="stat-label">Brand & klien</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Tahun pengalaman</span>
+            </div>
+          </div>
+
+          <div class="hero-social">
+            <span class="hero-social-label">Aktif di:</span>
+            <a href="https://www.tiktok.com/@ossiyostiani" target="_blank" class="social-pill social-pill-tiktok">
+              <span class="dot"></span> TikTok @ossiyostiani
+            </a>
+            <a href="https://www.instagram.com/yossiyostiani" target="_blank" class="social-pill social-pill-ig">
+              <span class="dot"></span> Instagram @yossiyostiani
+            </a>
+          </div>
+
+          <div class="skills-ticker">
+            <div class="skills-ticker-track">
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Reels & TikTok hook
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Desain carousel edukasi
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Template Canva editable
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Mini branding kit
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Konten promo & campaign
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Reels & TikTok hook
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Desain carousel edukasi
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Template Canva editable
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Mini branding kit
+              </span>
+              <span class="skills-ticker-item">
+                <span class="skills-dot"></span> Konten promo & campaign
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-tag-floating">
+              Ready untuk campaign baru ✨
+            </div>
+            <div class="hero-photo">
+              <img src="/tasss.png" alt="Portofolio Yossi Yostiani">
+            </div>
+            <div class="hero-chip">
+              Desain feed, reels cover, carousel, & banner promosi.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="reveal reveal-left visible">
+        <div class="section-header">
+          <p class="section-eyebrow">Tentang saya</p>
+          <h2 class="section-title">Designer yang suka visual colourful & clean</h2>
+          <p class="section-description">
+            Aku terbiasa mengerjakan desain untuk social media, campaign bulanan,
+            hingga kebutuhan materi konten kreator. Fokusku: desain yang mudah dibaca,
+            konsisten dengan brand, dan tetap playful.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <p class="about-text">
+              Beberapa skill yang sering aku gunakan:
+            </p>
+            <div class="about-tags">
+              <span class="tag-pill">Social Media Design</span>
+              <span class="tag-pill">Instagram Feed & Story</span>
+              <span class="tag-pill">Presentation Slide</span>
+              <span class="tag-pill">Branding Kit</span>
+              <span class="tag-pill">Canva Expert</span>
+              <span class="tag-pill">Content Planning Visual</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                  <div class="timeline-title">Freelance Content Designer</div>
+                  <div class="timeline-meta">2022 - Sekarang · Klien UMKM & kreator</div>
+                  <p>Desain konten rutin, template, dan materi promosi.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background: var(--accent1);"></div>
+                <div>
+                  <div class="timeline-title">Social Media Visual Support</div>
+                  <div class="timeline-meta">2021 - 2022</div>
+                  <p>Bantu tim marketing menyiapkan visual campaign bulanan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="reveal reveal-left visible">
+        <div class="section-header">
+          <p class="section-eyebrow">Layanan</p>
+          <h2 class="section-title">Apa yang bisa aku bantu?</h2>
+          <p class="section-description">
+            Semua layanan bisa disesuaikan dengan kebutuhan dan tone brand kamu.
+            Cocok untuk kreator, online shop, maupun bisnis yang mau tampil rapi di social media.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <p class="service-label">01 · Social Media</p>
+            <h3 class="service-title">Desain Feed & Story</h3>
+            <p class="service-desc">
+              Paket desain konten Instagram / TikTok berupa feed, story, dan highlight icon
+              dengan style colourful & playful.
+            </p>
+          </div>
+          <div class="service-card">
+            <p class="service-label">02 · Template</p>
+            <h3 class="service-title">Template Canva Editable</h3>
+            <p class="service-desc">
+              Template carousel, poster, dan slide presentasi yang bisa kamu edit sendiri di Canva
+              berkali-kali.
+            </p>
+          </div>
+          <div class="service-card">
+            <p class="service-label">03 · Branding</p>
+            <h3 class="service-title">Mini Branding Kit</h3>
+            <p class="service-desc">
+              Pemilihan warna, font, gaya visual, dan contoh layout agar brand kamu punya identitas yang konsisten.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO (IMAGE) -->
+      <section id="portfolio" class="reveal reveal-left visible">
+        <div class="section-header">
+          <p class="section-eyebrow">Portofolio</p>
+          <h2 class="section-title">Beberapa contoh desain</h2>
+          <p class="section-description">
+            Berikut beberapa contoh desain (feed, story, poster, dan slide) yang pernah aku kerjakan.
+            Gambar di bawah bisa kamu ganti dengan karya kamu sendiri.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- ITEM 1 -->
+          <article class="portfolio-item reveal-card" 
+                   data-reel="https://www.instagram.com/reel/DJaTpiSTNr_/?igsh=MXhjcGJ4a2tyZ2Q4eQ==">
+            <div class="portfolio-thumb">
+              <img src="/photo_1_2025-11-26_22-22-17.jpg" alt="Portofolio Yossi Yostiani">
+              <div class="portfolio-hover">
+                <div class="portfolio-icon">▶</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3 class="portfolio-title">BRImo Vestival</h3>
+              <p class="portfolio-meta">By Yossi Yostiani</p>
+            </div>
+          </article>
+
+          <!-- ITEM 2 -->
+          <article class="portfolio-item reveal-card" 
+                   data-reel="https://www.instagram.com/reel/DIIXA53yzIz/?igsh=ZndveDFhbWZhYzlh">
+            <div class="portfolio-thumb">
+              <img src="/photo_2_2025-11-26_22-22-17.jpg" alt="Portofolio Yossi Yostiani">
+              <div class="portfolio-hover">
+                <div class="portfolio-icon">▶</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3 class="portfolio-title">Brand Padimas</h3>
+              <p class="portfolio-meta">By Yossi Yostiani</p>
+            </div>
+          </article>
+
+          <!-- ITEM 3 -->
+          <article class="portfolio-item reveal-card" 
+                   data-reel="https://www.instagram.com/reel/DGpLqLZyMqn/?igsh=MTF0dTUzOXVwYWw5bg==">
+            <div class="portfolio-thumb">
+              <img src="/photo_3_2025-11-26_22-22-17.jpg" alt="Portofolio Yossi Yostiani">
+              <div class="portfolio-hover">
+                <div class="portfolio-icon">▶</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3 class="portfolio-title">Almond Roasted Dari Almom</h3>
+              <p class="portfolio-meta">By Yossi Yostiani</p>
+            </div>
+          </article>
+
+          <!-- ITEM 4 -->
+          <article class="portfolio-item reveal-card" 
+                   data-reel="https://www.instagram.com/reel/DGYKbzFSG1A/?igsh=eG9oaGt0YTRhb3V3">
+            <div class="portfolio-thumb">
+              <img src="/photo_4_2025-11-26_22-22-17.jpg" alt="Portofolio Yossi Yostiani">
+              <div class="portfolio-hover">
+                <div class="portfolio-icon">▶</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3 class="portfolio-title">Almom Susu Almond</h3>
+              <p class="portfolio-meta">By Yossi Yostiani</p>
+            </div>
+          </article>
+
+          <!-- ITEM 5 -->
+          <article class="portfolio-item reveal-card" 
+                   data-reel="https://www.instagram.com/reel/DBdLP7xSdV1/?igsh=MWY5YmUxcG40bDJ4Nw==">
+            <div class="portfolio-thumb">
+              <img src="/photo_2025-11-26_22-27-40.jpg" alt="Portofolio Yossi Yostiani">
+              <div class="portfolio-hover">
+                <div class="portfolio-icon">▶</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3 class="portfolio-title">Brand Yupi</h3>
+              <p class="portfolio-meta">By Yossi Yostiani</p>
+            </div>
+          </article>
+
+          <!-- ITEM 6 -->
+          <article class="portfolio-item reveal-card" 
+                   data-reel="https://www.instagram.com/reel/DDezj_QSkT2/?igsh=ZXJzYTk3MjRwZThw">
+            <div class="portfolio-thumb">
+              <img src="/photo_6_2025-11-26_22-22-17.jpg" alt="Portofolio Yossi Yostiani">
+              <div class="portfolio-hover">
+                <div class="portfolio-icon">▶</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3 class="portfolio-title">Brand Bellagio Pomade</h3>
+              <p class="portfolio-meta">By Yossi Yostiani</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- PORTFOLIO VIDEO TIKTOK (CAROUSEL) -->
+        <div class="section-header" style="margin-top:32px;">
+          <p class="section-eyebrow">Video Portofolio</p>
+          <h2 class="section-title">Contoh konten TikTok yang pernah aku buat</h2>
+          <p class="section-description">
+            Video di bawah ini langsung diambil dari TikTok. Geser ke kiri/kanan (swipe)
+            atau gunakan tombol untuk lihat beberapa contoh video konten.
+          </p>
+        </div>
+
+        <div class="video-carousel">
+          <button class="carousel-btn prev" type="button" aria-label="Sebelumnya">‹</button>
+
+          <div class="carousel-track" id="tiktokCarouselTrack">
+            <!-- SLIDE 1 -->
+            <div class="carousel-slide">
+              <div class="video-card">
+                <div class="video-title">TikTok Konten Desain</div>
+                <div class="video-meta">@ossiyostiani · Portofolio konten</div>
+                <div class="tiktok-wrapper">
+                  <blockquote class="tiktok-embed"
+                    cite="https://www.tiktok.com/@ossiyostiani/video/7576185802154134792"
+                    data-video-id="7576185802154134792">
+                    <section>
+                      <a target="_blank" href="https://www.tiktok.com/@ossiyostiani">
+                        @ossiyostiani
+                      </a>
+                    </section>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="carousel-slide">
+              <div class="video-card">
+                <div class="video-title">TikTok Showcase Desain</div>
+                <div class="video-meta">@ossiyostiani · Portofolio konten</div>
+                <div class="tiktok-wrapper">
+                  <blockquote class="tiktok-embed"
+                    cite="https://www.tiktok.com/@ossiyostiani/video/7574340051748900104"
+                    data-video-id="7574340051748900104">
+                    <section>
+                      <a target="_blank" href="https://www.tiktok.com/@ossiyostiani">
+                        @ossiyostiani
+                      </a>
+                    </section>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="carousel-slide">
+              <div class="video-card">
+                <div class="video-title">TikTok Portofolio Lainnya</div>
+                <div class="video-meta">@ossiyostiani · Portofolio konten</div>
+                <div class="tiktok-wrapper">
+                  <blockquote class="tiktok-embed"
+                    cite="https://www.tiktok.com/@ossiyostiani/video/7569432906938977544"
+                    data-video-id="7569432906938977544">
+                    <section>
+                      <a target="_blank" href="https://www.tiktok.com/@ossiyostiani">
+                        @ossiyostiani
+                      </a>
+                    </section>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="carousel-slide">
+              <div class="video-card">
+                <div class="video-title">TikTok Portofolio Tambahan</div>
+                <div class="video-meta">@ossiyostiani · Portofolio konten</div>
+                <div class="tiktok-wrapper">
+                  <blockquote class="tiktok-embed"
+                    cite="https://www.tiktok.com/@ossiyostiani/video/7576175061124648199"
+                    data-video-id="7576175061124648199">
+                    <section>
+                      <a target="_blank" href="https://www.tiktok.com/@ossiyostiani">
+                        @ossiyostiani
+                      </a>
+                    </section>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn next" type="button" aria-label="Berikutnya">›</button>
+        </div>
+
+        <div class="carousel-dots" id="tiktokCarouselDots">
+          <button class="carousel-dot active" data-index="0"></button>
+          <button class="carousel-dot" data-index="1"></button>
+          <button class="carousel-dot" data-index="2"></button>
+          <button class="carousel-dot" data-index="3"></button>
+        </div>
+      </section>
+
+      <!-- VIDEO MODAL POPUP REELS -->
+      <div id="videoModal" class="video-modal">
+        <div class="video-modal-content" id="videoModalContent">
+          <button class="video-close" id="closeVideoModal">✕</button>
+          <button class="video-nav video-nav-prev" id="videoPrev">‹</button>
+          <button class="video-nav video-nav-next" id="videoNext">›</button>
+          <div class="video-embed-wrapper" id="videoEmbedWrapper">
+            <!-- embed Instagram akan dimasukkan via JS -->
+          </div>
+        </div>
+      </div>
+      
+<section id="clients" class="reveal reveal-left">
+  <div class="section-header">
+    <p class="section-eyebrow">Klien</p>
+    <h2 class="section-title">Brand yang pernah bekerja sama</h2>
+  </div>
+
+  <div class="logo-strip">
+    <div class="logo-track">
+      <img src="/1747503.png" alt="Client Logo" />
+      <img src="/Lowongan Kerja Bank BRI Desember 2023.jpg" alt="Client Logo" />
+      <img src="/footer-logo.png" alt="Client Logo" />
+
+      <!-- DUPLICATE untuk looping mulus -->
+      <img src="/1747503.png" alt="Client Logo" />
+      <img src="/Lowongan Kerja Bank BRI Desember 2023.jpg" alt="Client Logo" />
+      <img src="/footer-logo.png" alt="Client Logo" />
+    </div>
+  </div>
+</section>
+
+      
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="reveal reveal-left visible">
+        <div class="section-header">
+          <p class="section-eyebrow">Klien & Testimoni</p>
+          <h2 class="section-title">Apa kata mereka?</h2>
+        </div>
+
+        <div class="testimonials-row">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              “Desainnya rapi dan sesuai brief. Yossi selalu responsif dan bantu revisi dengan cepat.”
+            </p>
+            <p class="testimonial-name">Owner Brand A</p>
+            <p class="testimonial-role">Skincare UMKM</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              “Suka banget sama warna & vibe template-nya. Tinggal ganti text aja, hemat waktu buat posting.”
+            </p>
+            <p class="testimonial-name">Kreator Konten B</p>
+            <p class="testimonial-role">Lifestyle Creator</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              “Presentasi campaign jadi jauh lebih menarik dan mudah dipahami tim manajemen.”
+            </p>
+            <p class="testimonial-name">Digital Marketer C</p>
+            <p class="testimonial-role">Agency Partner</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="reveal reveal-left visible">
+        <div class="contact-cta">
+          <div>
+            <h2 class="contact-title">Siap mulai project bareng?</h2>
+            <p class="contact-sub">
+              Kirim brief singkat kamu: jenis desain, jumlah konten, dan deadline.
+              Aku akan balas dengan harga & estimasi waktu pengerjaan.
+            </p>
+            <div class="contact-buttons">
+              <a href="https://wa.me/6282219823967?text=Hai%20Kak%20Yossi%2C%20mau%20tanya%20soal%20desain%20konten." class="btn-contact-primary">
+                Chat via WhatsApp
+              </a>
+              <a href="mailto:yossiyostiani07@gmail.com" class="btn-contact-ghost">
+                Kirim brief via email ✉
+              </a>
+            </div>
+          </div>
+          <div class="contact-info">
+            <p><strong>Kontak:</strong></p>
+            <p>Email: yossiyostiani07@gmail.com</p>
+            <p>Instagram: @yossiyostiani</p>
+            <p>TikTok: @ossiyostiani</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Yossi Yostiani · Portofolio Desain
+    </footer>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Kembali ke atas">↑</button>
+
+  <script>
+    // Tahun otomatis
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    revealElements.forEach((el) => observer.observe(el));
+
+    // Scroll progress bar
+    const scrollBar = document.getElementById("scrollProgressBar");
+    if (scrollBar) {
+      const updateScrollBar = () => {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = window.scrollY || document.documentElement.scrollTop || 0;
+        const progress = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+        scrollBar.style.width = progress + "%";
+      };
+
+      window.addEventListener("scroll", updateScrollBar);
+      window.addEventListener("resize", updateScrollBar);
+      updateScrollBar();
+    }
+
+    // Back to top
+    const backBtn = document.getElementById("backToTop");
+    if (backBtn) {
+      const toggleBackBtn = () => {
+        if (window.scrollY > 400) {
+          backBtn.classList.add("show");
+        } else {
+          backBtn.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", toggleBackBtn);
+      toggleBackBtn();
+
+      backBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    // LOGIC CAROUSEL TIKTOK
+    (function() {
+      const track = document.getElementById("tiktokCarouselTrack");
+      const slides = track ? Array.from(track.querySelectorAll(".carousel-slide")) : [];
+      const dotsContainer = document.getElementById("tiktokCarouselDots");
+      const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll(".carousel-dot")) : [];
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+
+      if (!track || slides.length === 0) return;
+
+      let currentIndex = 0;
+
+      function goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index > slides.length - 1) index = slides.length - 1;
+        currentIndex = index;
+
+        const target = slides[index];
+        track.scrollTo({
+          left: target.offsetLeft,
+          behavior: "smooth"
+        });
+
+        if (dots.length) {
+          dots.forEach((d, i) => d.classList.toggle("active", i === index));
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          goToSlide(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          goToSlide(currentIndex + 1);
+        });
+      }
+
+      if (dots.length) {
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const idx = parseInt(dot.getAttribute("data-index"), 10);
+            goToSlide(idx);
+          });
+        });
+      }
+
+      // INSTAGRAM REELS POPUP & CAROUSEL
+      const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item[data-reel]"));
+      const reelsModal = document.getElementById("videoModal");
+      const reelsModalContent = document.getElementById("videoModalContent");
+      const reelsWrapper = document.getElementById("videoEmbedWrapper");
+      const reelsClose = document.getElementById("closeVideoModal");
+      const reelsPrev = document.getElementById("videoPrev");
+      const reelsNext = document.getElementById("videoNext");
+      let currentReelIndex = -1;
+
+      function loadInstagramScriptAndProcess() {
+        if (!window.instgrm) {
+          const s = document.createElement("script");
+          s.src = "https://www.instagram.com/embed.js";
+          s.onload = () => window.instgrm && window.instgrm.Embeds.process();
+          document.body.appendChild(s);
+        } else {
+          window.instgrm.Embeds.process();
+        }
+      }
+
+      function showReelAt(index) {
+        if (!portfolioItems.length) return;
+        if (index < 0) index = portfolioItems.length - 1;
+        if (index > portfolioItems.length - 1) index = 0;
+        currentReelIndex = index;
+
+        const reelURL = portfolioItems[currentReelIndex].getAttribute("data-reel");
+        if (!reelURL) return;
+
+        reelsWrapper.innerHTML = `
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="${reelURL}"
+            data-instgrm-version="14"
+            style="margin: 0 auto; max-width: 400px; width: 100%;">
+          </blockquote>
+        `;
+
+        reelsModal.classList.add("show");
+        loadInstagramScriptAndProcess();
+      }
+
+      function closeReelsModal() {
+        reelsModal.classList.remove("show");
+        reelsWrapper.innerHTML = "";
+      }
+
+      // klik hanya di thumbnail & icon
+      portfolioItems.forEach((item, idx) => {
+        const thumb = item.querySelector(".portfolio-thumb");
+        const icon = item.querySelector(".portfolio-icon");
+
+        const handler = (e) => {
+          e.stopPropagation();
+          showReelAt(idx);
+        };
+
+        if (thumb) thumb.addEventListener("click", handler);
+        if (icon) icon.addEventListener("click", handler);
+      });
+
+      if (reelsClose) {
+        reelsClose.addEventListener("click", closeReelsModal);
+      }
+
+      if (reelsModal) {
+        reelsModal.addEventListener("click", (e) => {
+          if (e.target === reelsModal) {
+            closeReelsModal();
+          }
+        });
+      }
+
+      if (reelsPrev) {
+        reelsPrev.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showReelAt(currentReelIndex - 1);
+        });
+      }
+      if (reelsNext) {
+        reelsNext.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showReelAt(currentReelIndex + 1);
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (!reelsModal.classList.contains("show")) return;
+        if (e.key === "Escape") closeReelsModal();
+        if (e.key === "ArrowLeft") showReelAt(currentReelIndex - 1);
+        if (e.key === "ArrowRight") showReelAt(currentReelIndex + 1);
+      });
+
+      let touchStartX = null;
+      if (reelsModalContent) {
+        reelsModalContent.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+        });
+
+        reelsModalContent.addEventListener("touchend", (e) => {
+          if (touchStartX === null) return;
+          const diffX = e.changedTouches[0].clientX - touchStartX;
+          const threshold = 50;
+          if (Math.abs(diffX) > threshold) {
+            if (diffX > 0) {
+              showReelAt(currentReelIndex - 1);
+            } else {
+              showReelAt(currentReelIndex + 1);
+            }
+          }
+          touchStartX = null;
+        });
+      }
+
+      // Update dot saat swipe manual
+      track.addEventListener("scroll", () => {
+        const scrollLeft = track.scrollLeft;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        slides.forEach((slide, i) => {
+          const distance = Math.abs(slide.offsetLeft - scrollLeft);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = i;
+          }
+        });
+
+        currentIndex = closestIndex;
+        if (dots.length) {
+          dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+        }
+      });
+    })();
+  </script>
+
+  <!-- Script resmi embed TikTok -->
+  <script async src="https://www.tiktok.com/embed.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
