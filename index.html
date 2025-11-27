@@ -476,6 +476,40 @@
       margin-bottom: 10px;
     }
 
+    /* === AVAILABILITY PILL DI HERO === */
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(123,140,255,0.06);
+      border: 1px dashed rgba(123,140,255,0.4);
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(6px);
+    }
+
+    .availability-pill .dot-online {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #22c55e; /* hijau online */
+      box-shadow: 0 0 0 5px rgba(34,197,94,0.25);
+    }
+
+    .availability-pill span.label-strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .availability-pill small {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
     .hero-highlight {
       background: linear-gradient(135deg, var(--accent1), var(--accent2));
       -webkit-background-clip: text;
@@ -1602,6 +1636,12 @@
         width: 34px;
         height: 34px;
       }
+
+      /* Availability pill full width di hp biar rapi */
+      .availability-pill {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
 
     /* === PRELOADER === */
@@ -1755,6 +1795,15 @@
             Hai, aku <span class="hero-highlight">Yossi Yostiani</span>,  
             siap bantu visualkan brand & konten kamu.
           </h1>
+
+          <!-- AVAILABILITY PILL -->
+          <div class="availability-pill">
+            <span class="dot-online"></span>
+            <span class="label-strong">Available for project</span>
+            <small>Desember 2025 · Online via WhatsApp & Email</small>
+          </div>
+          <!-- END AVAILABILITY PILL -->
+
           <p class="hero-subtitle">
             Desainer grafis & content creator yang fokus pada desain feed, story,
             poster, slide presentasi, dan kebutuhan visual untuk brand kecil hingga UMKM.
@@ -2516,4 +2565,3 @@
   <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
-
