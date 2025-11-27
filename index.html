@@ -26,6 +26,18 @@
       --transition: all 0.25s ease;
     }
 
+    /* DARK MODE THEME */
+    :root[data-theme="dark"] {
+      --bg: #070312;
+      --bg-soft: #141020;
+      --text: #fdf8ff;
+      --muted: #b6a9d4;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.8);
+      --accent1: #ff9ad6;
+      --accent2: #9ba6ff;
+      --accent3: #ffd978;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -40,6 +52,13 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* BODY BACKGROUND OVERRIDE FOR DARK MODE */
+    :root[data-theme="dark"] body {
+      background: radial-gradient(circle at top left, #2a1537 0, transparent 40%),
+                  radial-gradient(circle at bottom right, #151930 0, transparent 45%),
+                  var(--bg);
     }
 
     img {
@@ -59,56 +78,58 @@
       position: relative;
       z-index: 1;
     }
-.logo-strip {
-  overflow: hidden;
-  width: 100%;
-  padding: 16px 0;
-  position: relative;
-}
 
-.logo-track {
-  display: flex;
-  gap: 42px;
-  align-items: center;
-  animation: scrollLogos 28s linear infinite;
-}
+    .logo-strip {
+      overflow: hidden;
+      width: 100%;
+      padding: 16px 0;
+      position: relative;
+    }
 
-.logo-track img {
-  height: 42px;
-  opacity: 0.75;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  filter: grayscale(100%);
-}
+    .logo-track {
+      display: flex;
+      gap: 42px;
+      align-items: center;
+      animation: scrollLogos 28s linear infinite;
+    }
 
-.logo-track img:hover {
-  opacity: 1;
-  transform: scale(1.05);
-  filter: grayscale(0%);
-}
+    .logo-track img {
+      height: 42px;
+      opacity: 0.75;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      filter: grayscale(100%);
+    }
 
-@keyframes scrollLogos {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+    .logo-track img:hover {
+      opacity: 1;
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
 
-/* mobile tweak */
-@media (max-width: 600px) {
-  .logo-track img {
-    height: 32px;
-    gap: 28px;
-  }
-}
-.logo-strip:hover .logo-track {
-  animation-play-state: paused;
-}
+    @keyframes scrollLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
-  @media (prefers-reduced-motion: reduce) {
-  .logo-track {
-    animation: none;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
+    /* mobile tweak */
+    @media (max-width: 600px) {
+      .logo-track img {
+        height: 32px;
+        gap: 28px;
+      }
+    }
+    .logo-strip:hover .logo-track {
+      animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track {
+        animation: none;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
     /* ============= ANIMATIONS ============= */
 
     @keyframes slideInNav {
@@ -274,6 +295,11 @@
       animation: slideInNav 0.7s ease forwards;
     }
 
+    :root[data-theme="dark"] .navbar-inner {
+      background: rgba(10, 7, 22, 0.9);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.75);
+    }
+
     .brand {
       display: flex;
       align-items: center;
@@ -362,6 +388,44 @@
       padding: 7px 16px;
       border-radius: 999px;
       box-shadow: 0 8px 20px rgba(123, 140, 255, 0.4);
+    }
+
+    /* THEME TOGGLE BUTTON */
+    .theme-toggle {
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      backdrop-filter: blur(10px);
+      transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .theme-toggle:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+    }
+
+    .theme-toggle-icon {
+      font-size: 16px;
+    }
+
+    :root[data-theme="dark"] .theme-toggle {
+      background: rgba(15, 10, 30, 0.9);
+      color: #fdf8ff;
     }
 
     /* ============= HERO ============= */
@@ -579,6 +643,12 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
+    :root[data-theme="dark"] .stat-pill,
+    :root[data-theme="dark"] .social-pill {
+      background: rgba(17, 13, 35, 0.9);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+    }
+
     .stat-pill:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 32px rgba(0,0,0,0.12);
@@ -593,6 +663,11 @@
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(0,0,0,0.06);
       position: relative;
+    }
+
+    :root[data-theme="dark"] .skills-ticker {
+      background: rgba(14, 10, 30, 0.96);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
     }
 
     .skills-ticker::before,
@@ -1066,8 +1141,8 @@
         padding: 14px;
       }
       .nav-links a:not(.nav-cta) {
-  display: none;
-}
+        display: none;
+      }
 
       .video-modal-content {
         max-width: 360px;
@@ -1500,8 +1575,6 @@
         padding: 5px 9px;
       }
 
-     
-
       .nav-cta {
         padding: 6px 12px;
         font-size: 12px;
@@ -1530,9 +1603,104 @@
         height: 34px;
       }
     }
+
+    /* === PRELOADER === */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, var(--accent2) 0%, var(--bg) 45%, var(--bg-soft) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    #preloader.preloader-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-inner {
+      text-align: center;
+      padding: 24px 32px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    :root[data-theme="dark"] .preloader-inner {
+      background: rgba(9, 6, 18, 0.88);
+      color: #fdf8ff;
+    }
+
+    .preloader-logo {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 10px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: #fff;
+    }
+
+    .preloader-text {
+      font-size: 13px;
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .preloader-bar {
+      width: 180px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    :root[data-theme="dark"] .preloader-bar {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .preloader-bar-fill {
+      width: 30%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      animation: preloaderSlide 1.2s ease-in-out infinite;
+    }
+
+    @keyframes preloaderSlide {
+      0% {
+        transform: translateX(-120%);
+      }
+      50% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(220%);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">YY</div>
+      <div class="preloader-text">Loading portfolio...</div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- SCROLL PROGRESS BAR -->
   <div class="scroll-progress">
     <div class="scroll-progress-bar" id="scrollProgressBar"></div>
@@ -1561,6 +1729,11 @@
           <a href="#testimonials">Klien</a>
           <a href="#contact" class="nav-cta">Hubungi Saya</a>
         </nav>
+        <!-- DARK MODE TOGGLE -->
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+          <span>Mode</span>
+        </button>
       </div>
     </header>
 
@@ -1973,26 +2146,25 @@
         </div>
       </div>
       
-<section id="clients" class="reveal reveal-left">
-  <div class="section-header">
-    <p class="section-eyebrow">Klien</p>
-    <h2 class="section-title">Brand yang pernah bekerja sama</h2>
-  </div>
+      <section id="clients" class="reveal reveal-left">
+        <div class="section-header">
+          <p class="section-eyebrow">Klien</p>
+          <h2 class="section-title">Brand yang pernah bekerja sama</h2>
+        </div>
 
-  <div class="logo-strip">
-    <div class="logo-track">
-      <img src="/1747503.png" alt="Client Logo" />
-      <img src="/Lowongan Kerja Bank BRI Desember 2023.jpg" alt="Client Logo" />
-      <img src="/footer-logo.png" alt="Client Logo" />
+        <div class="logo-strip">
+          <div class="logo-track">
+            <img src="/1747503.png" alt="Client Logo" />
+            <img src="/Lowongan Kerja Bank BRI Desember 2023.jpg" alt="Client Logo" />
+            <img src="/footer-logo.png" alt="Client Logo" />
 
-      <!-- DUPLICATE untuk looping mulus -->
-      <img src="/1747503.png" alt="Client Logo" />
-      <img src="/Lowongan Kerja Bank BRI Desember 2023.jpg" alt="Client Logo" />
-      <img src="/footer-logo.png" alt="Client Logo" />
-    </div>
-  </div>
-</section>
-
+            <!-- DUPLICATE untuk looping mulus -->
+            <img src="/1747503.png" alt="Client Logo" />
+            <img src="/Lowongan Kerja Bank BRI Desember 2023.jpg" alt="Client Logo" />
+            <img src="/footer-logo.png" alt="Client Logo" />
+          </div>
+        </div>
+      </section>
       
       <!-- TESTIMONIALS -->
       <section id="testimonials" class="reveal reveal-left visible">
@@ -2066,6 +2238,41 @@
     // Tahun otomatis
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // THEME HANDLER
+    (function () {
+      const root = document.documentElement;
+      const toggleBtn = document.getElementById("themeToggle");
+      const iconSpan = document.getElementById("themeIcon");
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        root.setAttribute("data-theme", "dark");
+        if (iconSpan) iconSpan.textContent = "☀️";
+      } else {
+        root.setAttribute("data-theme", "light");
+        if (iconSpan) iconSpan.textContent = "🌙";
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", function () {
+          const current = root.getAttribute("data-theme") || "light";
+          const next = current === "light" ? "dark" : "light";
+          root.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+          iconSpan.textContent = next === "dark" ? "☀️" : "🌙";
+        });
+      }
+    })();
+
+    // PRELOADER HANDLER
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      if (!preloader) return;
+      setTimeout(function () {
+        preloader.classList.add("preloader-hidden");
+      }, 400);
+    });
+
     // Scroll reveal animation
     const revealElements = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -2118,7 +2325,7 @@
       });
     }
 
-    // LOGIC CAROUSEL TIKTOK
+    // LOGIC CAROUSEL TIKTOK + INSTAGRAM REELS POPUP
     (function() {
       const track = document.getElementById("tiktokCarouselTrack");
       const slides = track ? Array.from(track.querySelectorAll(".carousel-slide")) : [];
@@ -2309,15 +2516,3 @@
   <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
