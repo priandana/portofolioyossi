@@ -57,6 +57,12 @@ body {
   transform: translate3d(0,0,0);
 }
 
+.site-nav .nav-links {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;   /* 👈 INI FIX-NYA */
+}
+
 .bg-orbit::before {
   background: radial-gradient(circle at center, rgba(244, 114, 182, 0.9), transparent 60%);
   top: -120px;
