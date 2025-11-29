@@ -113,103 +113,11 @@
 
     /* mobile tweak */
     @media (max-width: 600px) {
-  .page {
-    padding-inline: 14px;
-    padding-top: 10px;
-  }
-
-  .hero-social {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    font-size: 10px;
-  }
-
-  .social-pill {
-    width: 100%;
-    justify-content: flex-start;
-    padding: 5px 9px;
-    font-size: 11px;
-  }
-
-  .skills-ticker-track {
-    animation-duration: 24s;
-  }
-
-  .navbar {
-    position: static;
-    margin-bottom: 8px;
-  }
-
-  .navbar-inner {
-    padding: 6px 10px;
-    border-radius: 16px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    gap: 10px;
-  }
-
-  .brand-tagline {
-    display: none;
-  }
-
-  .brand-avatar {
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-
-  .brand-name {
-    font-size: 14px;
-  }
-
-  .nav-links {
-    gap: 8px;
-  }
-
-  /* 🔥 BAGIAN PENTING: atur apa yang tampil di HP */
-  .nav-links a {
-    display: none; /* sembunyikan semua dulu */
-  }
-
-  .nav-links a.nav-cta,
-  .nav-links a[href*="linktree"] {
-    display: inline-block; /* tampilkan Hubungi Saya + Linktree */
-  }
-
-  .nav-cta {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  section {
-    margin-top: 40px;
-  }
-
-  .hero {
-    margin-top: 18px;
-  }
-
-  .hero-title {
-    font-size: 25px;
-  }
-
-  .skills-ticker {
-    margin-top: 12px;
-  }
-
-  .back-to-top {
-    bottom: 18px;
-    right: 16px;
-    width: 34px;
-    height: 34px;
-  }
-
-  .availability-pill {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
-
+      .logo-track img {
+        height: 32px;
+        gap: 28px;
+      }
+    }
     .logo-strip:hover .logo-track {
       animation-play-state: paused;
     }
@@ -445,6 +353,7 @@
       gap: 16px;
       font-size: 13px;
       font-weight: 500;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -1266,9 +1175,6 @@
       .video-modal {
         padding: 14px;
       }
-      .nav-links a:not(.nav-cta) {
-        display: none;
-      }
 
       .video-modal-content {
         max-width: 360px;
@@ -1859,9 +1765,7 @@
           <a href="#services">Layanan</a>
           <a href="#portfolio">Portofolio</a>
           <a href="#testimonials">Klien</a>
-          <a href="https://portofolioyossi.vercel.app/linktree" target="_blank" rel="noopener">
-    Linktree
-  </a>
+          <a href="/linktree">Linktree</a>
           <a href="#contact" class="nav-cta">Hubungi Saya</a>
         </nav>
         <!-- DARK MODE TOGGLE -->
@@ -2660,6 +2564,3 @@
   <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
-
-
-
