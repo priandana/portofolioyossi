@@ -63,6 +63,11 @@ body {
   flex-wrap: wrap;   /* 👈 INI FIX-NYA */
 }
 
+.site-nav a {
+  padding: 4px 8px;      /* sedikit lebih kecil */
+  font-size: 10px;       /* biar muat semua */
+}
+
 .bg-orbit::before {
   background: radial-gradient(circle at center, rgba(244, 114, 182, 0.9), transparent 60%);
   top: -120px;
