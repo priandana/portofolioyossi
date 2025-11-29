@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact & Brief | Yossi Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Form kerja sama dan brief brand untuk kreator." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-page="contact">
+  <div class="bg-orbit"></div>
+
+  <main class="card-wrapper">
+    <section class="card">
+      <div class="site-nav">
+        <div class="logo">
+          <span class="logo-mark">Y</span>
+          <span>YOSSI LINKS</span>
+        </div>
+        <div class="nav-links">
+          <a href="/linktree">Links</a>
+          <a href="/linktree/stats">Statistik</a>
+          <a href="/linktree/faq">FAQ</a>
+          <a href="/linktree/contact" class="active">Contact</a>
+        </div>
+      </div>
+
+      <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark/light mode">
+        <span class="icon">🌙</span>
+        <span class="label">Cute Dark</span>
+      </button>
+
+      <header class="card-header">
+        <div class="avatar-wrapper">
+          <div class="avatar-inner">
+            <span>YY</span>
+          </div>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Open</span>
+          </div>
+        </div>
+
+        <div class="header-texts">
+          <div class="name">
+            <span>Form Kerja Sama</span>
+            <span class="highlight-pill">Brand & Agency</span>
+          </div>
+          <p class="bio">
+            Silakan isi form singkat di bawah ini.  
+            Kamu bisa ganti tujuan form (Formspree / Airtable / Notion / Google Form) sesuai workflow-mu.
+          </p>
+        </div>
+      </header>
+
+      <div class="contact-body">
+        <div class="contact-intro">
+          Form ini cocok untuk:
+          <ul style="margin:6px 0 0 18px;padding:0;font-size:11px;color:var(--text-soft);">
+            <li>Brand yang mau tanya rate card</li>
+            <li>Agency yang mau kirim brief campaign</li>
+            <li>Kolaborasi konten / UGC / ads</li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contactForm" method="POST" action="#">
+          <!-- NOTE: ganti action="#" dengan endpoint Formspree / backend kamu -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="brand">Nama Brand / Agency</label>
+              <input type="text" id="brand" name="brand" placeholder="Contoh: Brand Skincare A" required />
+            </div>
+            <div class="form-group">
+              <label for="person">Contact Person</label>
+              <input type="text" id="person" name="person" placeholder="Nama kamu" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Kerja</label>
+              <input type="email" id="email" name="email" placeholder="email@brand.com" required />
+            </div>
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp</label>
+              <input type="text" id="whatsapp" name="whatsapp" placeholder="+62..." />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="platform">Platform Utama</label>
+              <select id="platform" name="platform">
+                <option value="tiktok">TikTok</option>
+                <option value="instagram">Instagram</option>
+                <option value="youtube">YouTube / Shorts</option>
+                <option value="multi">Multi-channel</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Perkiraan Budget</label>
+              <select id="budget" name="budget">
+                <option value="confidential">Rahasia / diskusi dulu</option>
+                <option value="<3jt">&lt; 3 juta</option>
+                <option value="3-10jt">3 - 10 juta</option>
+                <option value="10-25jt">10 - 25 juta</option>
+                <option value=">25jt">&gt; 25 juta</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="objective">Tujuan Campaign</label>
+            <textarea id="objective" name="objective" placeholder="Contoh: awareness untuk produk baru, promo tanggal tertentu, UGC untuk ads, dll." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="details">Detail Tambahan (opsional)</label>
+            <textarea id="details" name="details" placeholder="Link contoh brand, timeline, deliverables, dll."></textarea>
+            <div class="form-hint">
+              Bisa tulis juga deadline, tipe konten (real shoot, voice over, dll).
+            </div>
+          </div>
+
+          <button type="submit" class="button-primary">
+            <span class="icon">📨</span>
+            <span>Kirim Form</span>
+          </button>
+
+          <div class="form-note">
+            Setelah submit, kamu juga bisa langsung follow up via WhatsApp: 
+            <a href="https://wa.me/6281234567890" style="color:#fb7185;text-decoration:none;" target="_blank" rel="noopener noreferrer">
+              klik di sini
+            </a>.
+          </div>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-badges">
+          <span class="footer-tag">Brief</span>
+          <span class="footer-tag">Contact</span>
+        </div>
+        <div>
+          <span style="opacity:0.8;">Back to</span>
+          <a href="/linktree">Link utama</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>
