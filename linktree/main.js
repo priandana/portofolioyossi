@@ -22,9 +22,38 @@ if (toggle) {
 }
 
 const contactForm = document.getElementById("contactForm");
+
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    alert("Form terkirim (demo).\n\nUntuk beneran kirim ke email / backend, ganti atribut action= di contact.html dan hapus JavaScript alert ini.");
+
+    const brand = document.getElementById("brand").value;
+    const person = document.getElementById("person").value;
+    const email = document.getElementById("email").value;
+    const whatsapp = document.getElementById("whatsapp").value;
+    const platform = document.getElementById("platform").value;
+    const budget = document.getElementById("budget").value;
+    const objective = document.getElementById("objective").value;
+    const details = document.getElementById("details").value || "-";
+
+    const message =
+`Form Kerja Sama – Yossi Links
+
+Brand/Agency : ${brand}
+Contact Person : ${person}
+Email : ${email}
+WhatsApp : ${whatsapp}
+Platform Utama : ${platform}
+Budget : ${budget}
+Tujuan Campaign : ${objective}
+Detail Tambahan : ${details}`;
+
+    const encoded = encodeURIComponent(message);
+
+    // GANTI NOMOR WA KAMU DI SINI
+    const waNumber = "6282219823967";
+
+    window.open(`https://wa.me/${waNumber}?text=${encoded}`, "_blank");
   });
 }
+
