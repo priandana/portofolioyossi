@@ -1,0 +1,36 @@
+{
+  "rewrites": [
+    {
+      "source": "/linktree",
+      "destination": "/linktree/index.html"
+    },
+    {
+      "source": "/linktree/",
+      "destination": "/linktree/index.html"
+    },
+    {
+      "source": "/linktree/stats",
+      "destination": "/linktree/stats.html"
+    },
+    {
+      "source": "/linktree/stats/",
+      "destination": "/linktree/stats.html"
+    },
+    {
+      "source": "/linktree/contact",
+      "destination": "/linktree/contact.html"
+    },
+    {
+      "source": "/linktree/contact/",
+      "destination": "/linktree/contact.html"
+    },
+    {
+      "source": "/linktree/faq",
+      "destination": "/linktree/faq.html"
+    },
+    {
+      "source": "/linktree/faq/",
+      "destination": "/linktree/faq.html"
+    }
+  ]
+}
