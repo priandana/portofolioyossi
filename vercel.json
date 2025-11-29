@@ -1,5 +1,7 @@
 {
   "rewrites": [
-    { "source": "/linktree", "destination": "/linktree/index.html" }
+    { "source": "/linktree", "destination": "/linktree/index.html" },
+    { "source": "/linktree/", "destination": "/linktree/index.html" },
+    { "source": "/linktree/:path*", "destination": "/linktree/:path*" }
   ]
 }
